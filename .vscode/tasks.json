@@ -1,0 +1,10 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "activate_env",
+            "command": "dart pub global run dotenv", // Could be any other shell command
+            "type": "shell"
+        }
+    ]
+}
