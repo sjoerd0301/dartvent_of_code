@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:b/b.dart';
+import 'package:collection/collection.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:scidart/numdart.dart';
 
@@ -15,6 +16,7 @@ part 'day_3.dart';
 part 'day_4.dart';
 part 'day_5.dart';
 part 'day_6.dart';
+part 'day_15.dart';
 
 abstract class Day {
   int get dayNo;
