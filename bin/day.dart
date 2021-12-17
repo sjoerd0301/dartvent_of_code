@@ -1,5 +1,6 @@
 library days;
 
+import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
@@ -16,6 +17,8 @@ part 'day_3.dart';
 part 'day_4.dart';
 part 'day_5.dart';
 part 'day_6.dart';
+part 'day_7.dart';
+
 part 'day_15.dart';
 
 abstract class Day {
