@@ -92,10 +92,9 @@ class day_7 extends Day {
 
   @override
   Future<void> prepareInput() async {
-    data = //'16,1,2,0,4,2,7,1,2,14'.split(',').map((s) => int.parse(s)).toList();
-        (await getParsedInput())[0]
-            .split(',')
-            .map((e) => int.parse(e))
-            .toList();
+    data = (await getParsedInput())[0]
+        .split(',')
+        .map((e) => int.parse(e))
+        .toList();
   }
 }

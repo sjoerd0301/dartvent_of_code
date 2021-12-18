@@ -18,6 +18,7 @@ part 'day_4.dart';
 part 'day_5.dart';
 part 'day_6.dart';
 part 'day_7.dart';
+part 'day_8.dart';
 
 part 'day_15.dart';
 
