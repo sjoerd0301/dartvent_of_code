@@ -21,12 +21,13 @@ part 'day_7.dart';
 part 'day_8.dart';
 part 'day_9.dart';
 part 'day_10.dart';
+part 'day_11.dart';
 
 part 'day_15.dart';
 
 abstract class Day {
   int get dayNo;
-  int get parts;
+  int get parts => 2;
 
   String? input;
 
