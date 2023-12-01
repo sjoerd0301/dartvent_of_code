@@ -1,6 +1,6 @@
-part of days;
+part of aoc2021;
 
-class day_8 extends Day {
+class day_8 extends d2021 {
   @override
   int get dayNo => 8;
   @override
@@ -139,9 +139,6 @@ class day_8 extends Day {
 
     return segmentMapping;
   }
-
-  @override
-  int get parts => 2;
 
   @override
   Future<void> prepareInput() async {

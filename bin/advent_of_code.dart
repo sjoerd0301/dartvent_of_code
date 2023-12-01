@@ -10,8 +10,8 @@ import 'day.dart'; //needed for reflection
 
 late final String cookie;
 
-Future<String> getInput(int day) async {
-  Uri url = Uri.parse('https://adventofcode.com/2021/day/$day/input');
+Future<String> getInput(int year, int day) async {
+  Uri url = Uri.parse('https://adventofcode.com/$year/day/$day/input');
 
   final resp = await http.get(url, headers: {'cookie': cookie});
 
@@ -22,7 +22,7 @@ void main(List<String> arguments) async {
   load();
   cookie = env['COOKIE'] as String;
 
-  Map<int, m.ObjectMirror> classList = {};
+  Map<int, Map<int, m.ObjectMirror>> yearList = {2021: {}, 2022: {}};
 
   final ms = m.currentMirrorSystem();
 
@@ -34,11 +34,23 @@ void main(List<String> arguments) async {
                 value.superclass?.simpleName == Symbol('Day'))) {
           m.ObjectMirror obj = value.newInstance(Symbol(''), []);
 
-          classList[obj.getField(Symbol('dayNo')).reflectee as int] = obj;
+          yearList[obj.getField(Symbol('dayNo')).reflectee as int]![
+              obj.getField(Symbol('year')).reflectee as int] = obj;
         }
       });
     }
   });
+
+  final selection = DateTime.now().year;
+
+  stdout.write(
+      'Select year (${yearList.keys.join(', ')}) (press enter to select $selection): ');
+  String? input = stdin.readLineSync();
+  if (input?.isNotEmpty ?? false) {
+    int? selection = int.tryParse(input!);
+  }
+
+  final classList = yearList[selection]!;
 
   while (true) {
     stdout.write(

@@ -1,4 +1,4 @@
-part of days;
+part of aoc2021;
 
 class Fish {
   Fish(this.day);
@@ -17,7 +17,7 @@ class Fish {
   }
 }
 
-class day_6 extends Day {
+class day_6 extends d2021 {
   @override
   int get dayNo => 6;
 
@@ -120,9 +120,6 @@ class day_6 extends Day {
 
     stdout.writeln('The answer is $count');
   }
-
-  @override
-  int get parts => 2;
 
   @override
   Future<void> prepareInput() async {

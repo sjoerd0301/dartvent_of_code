@@ -1,11 +1,8 @@
-part of days;
+part of aoc2021;
 
-class Day3 extends Day {
+class Day3 extends d2021 {
   @override
   int get dayNo => 3;
-
-  @override
-  int get parts => 2;
 
   @override
   Future<void> prepareInput() async {

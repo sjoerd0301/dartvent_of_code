@@ -1,4 +1,4 @@
-part of days;
+part of aoc2021;
 
 class Node extends Comparable<Node> {
   int x, y, danger;
@@ -26,7 +26,7 @@ class Node extends Comparable<Node> {
   }
 }
 
-class day_15 extends Day {
+class day_15 extends d2021 {
   @override
   int get dayNo => 15;
 
@@ -134,9 +134,6 @@ class day_15 extends Day {
 
     stdout.writeln('The answer is ${path[end]}');
   }
-
-  @override
-  int get parts => 2;
 
   @override
   Future<void> prepareInput() async {

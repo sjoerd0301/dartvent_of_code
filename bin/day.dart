@@ -1,5 +1,3 @@
-library days;
-
 import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
@@ -11,23 +9,10 @@ import 'package:scidart/numdart.dart';
 
 import 'advent_of_code.dart';
 
-part 'day_1.dart';
-part 'day_2.dart';
-part 'day_3.dart';
-part 'day_4.dart';
-part 'day_5.dart';
-part 'day_6.dart';
-part 'day_7.dart';
-part 'day_8.dart';
-part 'day_9.dart';
-part 'day_10.dart';
-part 'day_11.dart';
-
-part 'day_15.dart';
-
 abstract class Day {
+  int get year;
+
   int get dayNo;
-  int get parts => 2;
 
   String? input;
 
@@ -36,18 +21,15 @@ abstract class Day {
   Future<void> part_1();
   Future<void> part_2();
 
-  Future<void> run(int part) async {
+  Future<void> run() async {
     await prepareInput();
-    if (part == 1) {
-      part_1();
-    } else {
-      part_2();
-    }
+    part_1();
+    part_2();
   }
 
   late dynamic data;
 
-  Future<String> getInputByDay() => getInput(dayNo);
+  Future<String> getInputByDay() => getInput(year, dayNo);
 
   Future<List<String>> getParsedInput() async {
     String data = await getInputByDay();

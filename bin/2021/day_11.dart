@@ -1,4 +1,4 @@
-part of days;
+part of aoc2021;
 
 class octo {
   octo(this.level);
@@ -21,7 +21,7 @@ class octo {
   List<octo> neighbors = [];
 }
 
-class day_11 extends Day {
+class day_11 extends d2021 {
   @override
   int get dayNo => 11;
 

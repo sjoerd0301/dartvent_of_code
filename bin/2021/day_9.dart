@@ -1,4 +1,4 @@
-part of days;
+part of aoc2021;
 
 class node {
   node(this.value);
@@ -11,7 +11,7 @@ class node {
   node? bottom;
 }
 
-class day_9 extends Day {
+class day_9 extends d2021 {
   @override
   int get dayNo => 9;
 
@@ -102,9 +102,6 @@ class day_9 extends Day {
 
     return basinId + 1;
   }
-
-  @override
-  int get parts => 2;
 
   @override
   Future<void> prepareInput() async {

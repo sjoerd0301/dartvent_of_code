@@ -1,4 +1,4 @@
-part of days;
+part of aoc2021;
 
 class Chunk {
   String char;
@@ -17,7 +17,7 @@ class Chunk {
   }
 }
 
-class day_10 extends Day {
+class day_10 extends d2021 {
   @override
   int get dayNo => 10;
 
@@ -104,9 +104,6 @@ class day_10 extends Day {
 
     stdout.writeln('The answer is $count');
   }
-
-  @override
-  int get parts => 2;
 
   @override
   Future<void> prepareInput() async {

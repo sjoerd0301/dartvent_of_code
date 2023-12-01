@@ -1,6 +1,6 @@
-part of days;
+part of aoc2021;
 
-class day_7 extends Day {
+class day_7 extends d2021 {
   @override
   int get dayNo => 7;
   @override
@@ -86,9 +86,6 @@ class day_7 extends Day {
 
     stdout.writeln('the answer is ${shortestDistance[0]}');
   }
-
-  @override
-  int get parts => 2;
 
   @override
   Future<void> prepareInput() async {

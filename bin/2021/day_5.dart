@@ -1,4 +1,4 @@
-part of days;
+part of aoc2021;
 
 class Line {
   Point start;
@@ -7,7 +7,7 @@ class Line {
   Line(this.start, this.end);
 }
 
-class day_5 extends Day {
+class day_5 extends d2021 {
   @override
   int get dayNo => 5;
 
@@ -156,9 +156,6 @@ class day_5 extends Day {
     stdout.writeln(
         'The answer is: ${list.where((element) => element >= 2).length} : $count');
   }
-
-  @override
-  int get parts => 2;
 
   @override
   Future<void> prepareInput() async {
