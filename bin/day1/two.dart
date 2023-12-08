@@ -16,13 +16,13 @@ void main() {
     final first = regex.allMatches(e).first[0]!;
     final last = regex.allMatches(e).last[0]!;
 
-    int f = get_number(first), l = get_number(last);
+    int f = getNumber(first), l = getNumber(last);
 
     return int.parse('$f$l');
   }).sum);
 }
 
-int get_number(String number) {
+int getNumber(String number) {
   int? n = int.tryParse(number);
   if (n != null) return n;
 

@@ -20,7 +20,7 @@ void main() {
     return (split[0], int.parse(split[1]));
   });
 
-  hands.forEach((hand) {
+  for (final hand in hands) {
     final set = hand.$1.split('').toSet();
     int jokers = hand.$1.split('').where((element) => element == 'J').length;
     // String highestCard = set.fold(
@@ -88,10 +88,10 @@ void main() {
     } else if (count.containsValue(2) && jokers == 1) {
       threek.add(hand);
       return;
-    }else if (count.containsValue(2) && jokers == 2) {
+    } else if (count.containsValue(2) && jokers == 2) {
       fourk.add(hand);
       return;
-    }else if (count.containsValue(2) && jokers == 3) {
+    } else if (count.containsValue(2) && jokers == 3) {
       fivek.add(hand);
       return;
     }
@@ -118,8 +118,7 @@ void main() {
         fivek.add(hand);
         break;
     }
-
-  });
+  }
 
   final fullList = [
     ...high.sorted(sort),
@@ -160,12 +159,11 @@ int sort((String, int) a, (String, int) b) {
   if (a.$1 == b.$1) return 0;
 
   for (int i = 0; i < a.$1.length; i++) {
-    final a_i = a.$1[i], b_i = b.$1[i];
-    if (a_i == b_i) continue;
-    final weight_a = weights.indexOf(a_i) + 1,
-        weight_b = weights.indexOf(b_i) + 1;
+    final aI = a.$1[i], bI = b.$1[i];
+    if (aI == bI) continue;
+    final weightA = weights.indexOf(aI) + 1, weightB = weights.indexOf(bI) + 1;
 
-    return weight_a.compareTo(weight_b);
+    return weightA.compareTo(weightB);
   }
 
   return 0;

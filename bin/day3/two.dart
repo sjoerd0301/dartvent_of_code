@@ -1,19 +1,17 @@
 import 'dart:io';
 
 import 'package:collection/collection.dart';
-import 'package:rxdart/rxdart.dart';
-import 'dart:math';
 
 const String symbols = '!@#\$%^&*()_+\\/><,|~`\'";:';
 const String digits = '1234567890';
 
 class Number {
-  final int x_start, y, num;
+  final int xStart, y, num;
 
-  Number(this.x_start, this.y, this.num);
+  Number(this.xStart, this.y, this.num);
 
-  int get x_end =>
-      x_start +
+  int get xEnd =>
+      xStart +
       (num > 999
           ? 4
           : num > 99
@@ -24,7 +22,7 @@ class Number {
       1;
 
   @override
-  String toString() => '$num: $x_start - $x_end, $y';
+  String toString() => '$num: $xStart - $xEnd, $y';
 }
 
 void main() {
@@ -53,11 +51,11 @@ void main() {
           }
         }
 
-        String num_str = end == lines[y].length - 1
+        String numStr = end == lines[y].length - 1
             ? lines[y].substring(x)
             : lines[y].substring(x, end + 1);
 
-        final number = Number(x, y, int.parse(num_str));
+        final number = Number(x, y, int.parse(numStr));
 
         numbers.add(number);
 
@@ -69,20 +67,20 @@ void main() {
   print(possibleGears.map((e) {
     Set<Number> nums = {};
 
-    numbers.forEach((element) {
-      final y_start = e.$2 - 1;
-      final y_end = e.$2 + 1;
+    for (final element in numbers) {
+      final yStart = e.$2 - 1;
+      final yEnd = e.$2 + 1;
 
-      final x_start = e.$1 - 1;
-      final x_end = e.$1 + 1;
+      final xStart = e.$1 - 1;
+      final xEnd = e.$1 + 1;
 
-      if (y_start <= element.y &&
-          element.y <= y_end &&
-          x_start <= element.x_end &&
-          element.x_start <= x_end) {
+      if (yStart <= element.y &&
+          element.y <= yEnd &&
+          xStart <= element.xEnd &&
+          element.xStart <= xEnd) {
         nums.add(element);
       }
-    });
+    }
 
     if (nums.isNotEmpty && nums.length == 2) {
       return nums.first.num * nums.last.num;

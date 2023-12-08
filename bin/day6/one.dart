@@ -15,13 +15,13 @@ void main() {
   int total = 1;
 
   for (int i = 0; i < time.length; i++) {
-    final cur_t = time.elementAt(i);
-    final cur_d = distance.elementAt(i);
+    final curT = time.elementAt(i);
+    final curD = distance.elementAt(i);
 
     int options = 0;
 
-    for (int x = 0; x < cur_t; x++) {
-      if ((cur_t - x) * x > cur_d) {
+    for (int x = 0; x < curT; x++) {
+      if ((curT - x) * x > curD) {
         options++;
       }
     }

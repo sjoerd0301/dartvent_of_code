@@ -13,7 +13,6 @@ void main() {
     return MapEntry(splits[0], (nodes[0], nodes[1]));
   }));
 
-  int totalSteps = 0;
   final currentNodes = nodes.keys.where((element) => element.endsWith('A'));
 
   print(findLCMOfList(currentNodes.map((e) {

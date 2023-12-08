@@ -38,7 +38,6 @@ void main() async {
     },
   ).toList();
 
-  int? lowest;
 
   int s = 0, step = 250000;
 
@@ -67,12 +66,12 @@ void main() async {
 int? backwards(Map<String, dynamic> data) {
   final mapped = data['mapped'] as List<Map<int, Map<String, int>>>;
   final seedMap = data['element'] as Map<int, int>;
-  int start_val = data['start'] as int;
-  int end_val = data['end'] as int;
+  int startVal = data['start'] as int;
+  int endVal = data['end'] as int;
 
   final seeds = seedMap.entries.map((e) => (e.key, e.value));
 
-  for (int e = start_val; e <= end_val; e++) {
+  for (int e = startVal; e <= endVal; e++) {
     int currentNumber = e;
     for (final m in mapped.reversed) {
       final key = m.keys

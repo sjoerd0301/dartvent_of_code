@@ -9,7 +9,6 @@ void main() {
 
   final lines = file.readAsLinesSync();
 
-  int total = 0;
 
   print(lines.indexed.map((pair) => isValid(pair.$2) ? pair.$1 + 1 : 0).sum);
 }
