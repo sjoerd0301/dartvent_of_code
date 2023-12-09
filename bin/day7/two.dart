@@ -32,15 +32,15 @@ void main() {
 
     if (set.length == 5 && jokers == 0) {
       high.add(hand);
-      return;
+      continue;
     } else if (set.length == 5 && jokers == 1) {
       onep.add(hand);
-      return;
+      continue;
     }
 
     if (set.length == 1) {
       fivek.add(hand);
-      return;
+      continue;
     }
 
     final count = Map.fromEntries(set.map((element) {
@@ -55,50 +55,50 @@ void main() {
 
     if (count.containsValue(4) && jokers == 0) {
       fourk.add(hand);
-      return;
+      continue;
     } else if (count.containsValue(4) && jokers > 0) {
       fivek.add(hand);
-      return;
+      continue;
     }
 
     if (count.containsValue(3) && jokers == 0) {
       if (count.length == 2) {
         fullh.add(hand);
-        return;
+        continue;
       }
 
       threek.add(hand);
-      return;
+      continue;
     } else if (count.containsValue(3) && jokers == 1) {
       fourk.add(hand);
-      return;
+      continue;
     } else if (count.containsValue(3) && jokers == 2) {
       fivek.add(hand);
-      return;
+      continue;
     }
 
     if (count.values.where((element) => element == 2).length == 2 &&
         jokers == 0) {
       twop.add(hand);
-      return;
+      continue;
     } else if (count.values.where((element) => element == 2).length == 2 &&
         jokers > 0) {
       fullh.add(hand);
-      return;
+      continue;
     } else if (count.containsValue(2) && jokers == 1) {
       threek.add(hand);
-      return;
+      continue;
     } else if (count.containsValue(2) && jokers == 2) {
       fourk.add(hand);
-      return;
+      continue;
     } else if (count.containsValue(2) && jokers == 3) {
       fivek.add(hand);
-      return;
+      continue;
     }
 
     if (jokers == 0) {
       onep.add(hand);
-      return;
+      continue;
     }
 
     switch (jokers) {

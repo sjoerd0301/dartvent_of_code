@@ -24,11 +24,11 @@ void main() {
     final set = hand.$1.split('').toSet();
     if (set.length == 5) {
       high.add(hand);
-      return;
+      continue;
     }
     if (set.length == 1) {
       fivek.add(hand);
-      return;
+      continue;
     }
 
     final count = Map.fromEntries(set.map((element) {
@@ -41,21 +41,21 @@ void main() {
 
     if (count.containsValue(4)) {
       fourk.add(hand);
-      return;
+      continue;
     }
     if (count.containsValue(3)) {
       if (count.length == 2) {
         fullh.add(hand);
-        return;
+        continue;
       }
 
       threek.add(hand);
-      return;
+      continue;
     }
 
     if (count.values.where((element) => element == 2).length == 2) {
       twop.add(hand);
-      return;
+      continue;
     }
 
     onep.add(hand);
