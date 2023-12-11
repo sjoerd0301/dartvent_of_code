@@ -140,8 +140,6 @@ void main() {
     empty[position.$2][position.$1] = data[position.$2][position.$1];
   }
 
-  print(empty.map((e) => e.join('')).join('\n'));
-
   List<String> map = empty.map(
     (e) {
       return e
@@ -150,10 +148,6 @@ void main() {
           .replaceAll(RegExp('F-*J|L-*7'), '|');
     },
   ).toList();
-
-  print('');
-
-  print(map.join('\n'));
 
   int ans = 0;
 
