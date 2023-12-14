@@ -1,7 +1,6 @@
 import 'dart:io';
 
-
-final cache = <String, List<List<String>>>{};
+final cache = <String>{};
 
 void main() {
   final file = File('data.txt');
@@ -13,21 +12,25 @@ void main() {
   var firstRepeating = -1;
 
   for (int i = 0; i < 1000000000; i++) {
-    final key = tmp.fold(
-        '', (previousValue, element) => previousValue += element.join(''));
+    final key = tmp.map((e) => e.join('')).join('|');
 
-    if (cache.containsKey(key)) {
-      tmp = cache[key]!;
-      firstRepeating = cache.values.toList().indexOf(tmp) - 1;
+    if (cache.contains(key)) {
+      firstRepeating = cache.toList().indexOf(key) - 1;
       break;
     } else {
       tmp = cycle(tmp);
-      cache[key] = tmp;
+      cache.add(key);
     }
   }
 
-  print(calculateLoad(transpose(cache.values.elementAt(firstRepeating +
-      (1000000000 - firstRepeating-1) % (cache.length - firstRepeating - 1)))));
+  final element = cache
+      .elementAt(firstRepeating +
+          (1000000000 - firstRepeating) % (cache.length - firstRepeating - 1))
+      .split('|')
+      .map((e) => e.split('').toList())
+      .toList();
+
+  print(calculateLoad(transpose(element)));
 }
 
 int calculateLoad(List<List<String>> data) {
