@@ -45,17 +45,6 @@ int findmirror(List<String> data) {
     above = minLen == above.length ? above : above.sublist(0, minLen);
     below = (minLen == below.length ? below : below.sublist(0, minLen));
 
-    final t = above.where((row) {
-      final other = below[above.indexOf(row)];
-      int count = 0;
-      for (int j = 0; j < row.length; j++) {
-        if (other[j] != row[j]) {
-          count++;
-        }
-      }
-      return count == 1;
-    });
-
     int diff = above.fold(0, (previousValue, row) {
       final other = below[above.indexOf(row)].split('');
       return previousValue +
