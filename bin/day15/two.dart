@@ -7,7 +7,6 @@ void main() {
   final input = file.readAsLinesSync().first.split(',');
 
   final boxes = <int, Map<String, int>>{};
-  final lenses = <String, int>{};
 
   for (int i = 0; i < 256; i++) {
     boxes[i] = <String, int>{};
@@ -15,31 +14,20 @@ void main() {
 
   for (final line in input) {
     if (line.contains('-')) {
-      final selected = line.substring(0, line.length - 1);
+      final label = line.substring(0, line.length - 1);
+      final hashed = hash(label);
 
-      if (lenses.containsKey(selected)) {
-        final boxToManipulate = lenses.remove(selected)!;
-        final box = boxes[boxToManipulate]!;
-        box.remove(selected)!;
+      final box = boxes[hashed]!;
+      if (box.containsKey(label)) {
+        box.remove(label)!;
       }
-    } else if (line.contains('=')) {
+    } else {
       final splits = line.split('=');
 
-      final int currentBox = splits.first.codeUnits.fold(0,
-          (previousValue, element) => ((element + previousValue) * 17) % 256);
+      final int currentBox = hash(splits.first);
 
-      lenses[splits.first] = currentBox;
       boxes[currentBox]![splits.first] = int.parse(splits.last);
     }
-
-    // print('After "$line":');
-    // print(boxes.entries
-    //     .where((element) => element.value.isNotEmpty)
-    //     .toList()
-    //     .map((e) =>
-    //         'Box ${e.key}: ${e.value.entries.map((b) => '${b.key} ${b.value}').toList().map((e) => '[$e]').join(' ')}')
-    //     .join('\n'));
-    // print('');
   }
 
   print(boxes.entries
@@ -48,3 +36,6 @@ void main() {
           .sum)
       .sum);
 }
+
+int hash(String data) => data.codeUnits.fold(
+    0, (previousValue, element) => ((element + previousValue) * 17) % 256);
