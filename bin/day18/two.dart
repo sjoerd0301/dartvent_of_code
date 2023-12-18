@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'package:collection/collection.dart';
-
 void main() {
   final file = File('data.txt');
 
