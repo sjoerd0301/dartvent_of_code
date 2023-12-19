@@ -26,6 +26,8 @@ void main() {
 
   int steps = 0;
 
+  final points = <(int, int)>[];
+
   while (!finished) {
     final projection = matrix
         .map((e) => e.map((e) {
@@ -44,6 +46,10 @@ void main() {
               }
             }).toList())
         .toList();
+
+    if (['F', '7', 'J', 'L', 'S'].contains(data[position.$2][position.$1])) {
+      points.add(position);
+    }
 
     previous = position;
 
@@ -115,16 +121,6 @@ void main() {
           position = southPos;
         }
       case 'S':
-        // if (north != null && east != null) {
-        //   empty[start.$2][start.$1] = 'L';
-        // } else if (north != null && west != null) {
-        //   empty[start.$2][start.$1] = 'J';
-        // } else if (south != null && west != null) {
-        //   empty[start.$2][start.$1] = '7';
-        // } else if (south != null && east != null) {
-        //   empty[start.$2][start.$1] = 'F';
-        // }
-
         if (north != null) {
           position = northPos;
         } else if (south != null) {
@@ -135,31 +131,21 @@ void main() {
           position = eastPos;
         }
     }
+
     steps++;
-
-    empty[position.$2][position.$1] = data[position.$2][position.$1];
   }
 
-  List<String> map = empty.map(
-    (e) {
-      return e
-          .join('')
-          .replaceAll(RegExp('F-*7|L-*J'), '')
-          .replaceAll(RegExp('F-*J|L-*7'), '|');
-    },
-  ).toList();
+  var sum1 = 0;
+  var sum2 = 0;
 
-  int ans = 0;
-
-  for (var line in map) {
-    int parity = 0;
-    for (var c in line.split('')) {
-      if (c == '|') parity++;
-      if (c == '.' && parity % 2 == 1) ans++;
-    }
+  for (int i = 0; i < points.length; i++) {
+    sum1 = sum1 + points[i].$1 * points[(i + 1) % points.length].$2;
+    sum2 = sum2 + points[i].$2 * points[(i + 1) % points.length].$1;
   }
 
-  print(ans - 1);
+  final area = (sum1 - sum2).abs() ~/ 2;
+
+  print(area + 1 - steps ~/ 2);
 }
 
 const matrix = [
