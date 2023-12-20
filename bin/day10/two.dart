@@ -145,7 +145,7 @@ void main() {
 
   final area = (sum1 - sum2).abs() ~/ 2;
 
-  print(area + 1 - steps ~/ 2);
+  print(area + 1 - (steps ~/ 2));
 }
 
 const matrix = [
