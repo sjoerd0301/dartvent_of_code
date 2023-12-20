@@ -42,7 +42,6 @@ void main() {
             }).toList())
         .toList();
 
-
     previous = position;
 
     final north = projection[0][1];
@@ -127,7 +126,6 @@ void main() {
   }
 
   print(steps / 2);
-
 }
 
 const matrix = [

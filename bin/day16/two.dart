@@ -13,14 +13,6 @@ void main() {
   int maxLen = 0;
 
   for (int y = 0; y < input.length; y++) {
-    // if (y == 0) {
-    //   maxLen = max(calculate(input, (0, y, Dir.down), <(int, int, Dir)>{}).map((e) => (e.$1, e.$2)).toSet().length, maxLen);
-    //   maxLen = max(calculate(input, (input[0].length-1, y, Dir.down), <(int, int, Dir)>{}).map((e) => (e.$1, e.$2)).toSet().length, maxLen);
-    // } else if (y == input.length - 1) {
-    //   maxLen = max(calculate(input, (0, y, Dir.up), <(int, int, Dir)>{}).map((e) => (e.$1, e.$2)).toSet().length, maxLen);
-    //   maxLen = max(calculate(input, (input[0].length-1, y, Dir.up), <(int, int, Dir)>{}).map((e) => (e.$1, e.$2)).toSet().length, maxLen);
-    // }
-
     maxLen = max(
         calculate(input, (0, y, Dir.right), <(int, int, Dir)>{})
             .map((e) => (e.$1, e.$2))

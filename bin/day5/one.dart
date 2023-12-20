@@ -55,8 +55,3 @@ void main() {
     return currentNumber;
   }).sorted((a, b) => a.compareTo(b)));
 }
-
-
-// calc_transform(int input, Map<int, (int, int)> ){
-
-// }

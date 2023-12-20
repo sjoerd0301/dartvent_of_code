@@ -1,6 +1,5 @@
 import 'dart:io';
 
-
 void main() {
   final file = File('data.txt');
 
@@ -10,13 +9,12 @@ void main() {
 
   final nodes = Map.fromEntries(input.skip(2).map((e) {
     final splits = e.split(' = ');
-    final nodes = splits[1].replaceAll('(', '').replaceAll(')','').split(', ');
+    final nodes = splits[1].replaceAll('(', '').replaceAll(')', '').split(', ');
     return MapEntry(splits[0], (nodes[0], nodes[1]));
   }));
 
   int totalSteps = 0;
   String currentNode = 'AAA';
-
 
   while (currentNode != 'ZZZ') {
     int currentstep = totalSteps % instruction.length;

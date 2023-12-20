@@ -12,7 +12,6 @@ void main() {
   data = transpose(data);
   addRows(data);
 
-
   final galaxies = data
       .mapIndexed((y, element) =>
           element.mapIndexed((x, element) => element == '#' ? (x, y) : null))
@@ -43,11 +42,15 @@ void main() {
       final yStart = y_1 < y_2 ? y_1 : y_2;
       final yEnd = y_1 < y_2 ? y_2 : y_1;
 
-      final _x = data[y_1].skip(xStart).take(xEnd - xStart).fold(0,
-          (previousValue, element) => previousValue + (element == '*' ? 1000000 : 1));
+      final _x = data[y_1].skip(xStart).take(xEnd - xStart).fold(
+          0,
+          (previousValue, element) =>
+              previousValue + (element == '*' ? 1000000 : 1));
 
-      final _y = yRow.skip(yStart).take(yEnd - yStart).fold(0,
-          (previousValue, element) => previousValue + (element == '*' ? 1000000 : 1));
+      final _y = yRow.skip(yStart).take(yEnd - yStart).fold(
+          0,
+          (previousValue, element) =>
+              previousValue + (element == '*' ? 1000000 : 1));
 
       distances.add(_x + _y);
     }

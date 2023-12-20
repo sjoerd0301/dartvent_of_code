@@ -23,12 +23,6 @@ void main() {
   for (final hand in hands) {
     final set = hand.$1.split('').toSet();
     int jokers = hand.$1.split('').where((element) => element == 'J').length;
-    // String highestCard = set.fold(
-    //     'J',
-    //     (previousValue, element) =>
-    //         weights.indexOf(previousValue) < weights.indexOf(element)
-    //             ? element
-    //             : previousValue);
 
     if (set.length == 5 && jokers == 0) {
       high.add(hand);

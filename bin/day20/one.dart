@@ -43,10 +43,6 @@ void main() {
 
       final (nextState, modulesToUpdate) = module.updateState(state, origin);
 
-      // for (final mod in modulesToUpdate) {
-      //   print('$name ${nextState == 1 ? '-high-' : '-low-'}> $mod');
-      // }
-
       if (nextState != -1) {
         for (final toUpdate in modulesToUpdate) {
           Q.add((toUpdate, name, nextState));

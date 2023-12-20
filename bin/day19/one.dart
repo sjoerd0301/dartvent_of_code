@@ -60,7 +60,7 @@ void main() {
         break;
       }
       if (cur == 'R') break;
-      
+
       String redir = '';
       print(cur);
       final (rules, fb) = workflows[cur]!;

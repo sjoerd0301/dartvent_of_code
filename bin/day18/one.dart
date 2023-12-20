@@ -33,7 +33,6 @@ void main() {
     final cur = points[i];
     final next = points[(i + 1) % points.length];
 
-
     A += cur.$1 * (prev.$2 - next.$2);
   }
   A = A.abs() ~/ 2;

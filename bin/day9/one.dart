@@ -7,7 +7,7 @@ void main() {
 
   final input = file.readAsLinesSync();
 
- print(input.map((e) => e.split(' ').map((e) => int.parse(e))).map(
+  print(input.map((e) => e.split(' ').map((e) => int.parse(e))).map(
     (l) {
       final output = <List<int>>[l.toList()];
       while (!output.last.every((element) => element == 0)) {

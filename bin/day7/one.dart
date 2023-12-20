@@ -74,9 +74,6 @@ void main() {
   int total = 0;
 
   for (int i = 0; i < fullList.length; i++) {
-    // print(
-    //     '${fullList.elementAt(i).$1}: ${fullList.elementAt(i).$2} * ${i + 1}');
-
     total += fullList.elementAt(i).$2 * (i + 1);
   }
 

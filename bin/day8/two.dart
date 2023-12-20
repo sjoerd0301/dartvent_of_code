@@ -52,7 +52,7 @@ int findLCM(int a, int b) {
 int findLCMOfList(Iterable<int> numbers) {
   int lcm = numbers.first;
 
-  for (int i = 0; i < numbers.length-1; i++) {
+  for (int i = 0; i < numbers.length - 1; i++) {
     lcm = findLCM(lcm, numbers.elementAt(i));
   }
 

@@ -38,7 +38,6 @@ void main() async {
     },
   ).toList();
 
-
   int s = 0, step = 250000;
 
   while (true) {
